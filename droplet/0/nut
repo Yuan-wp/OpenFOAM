@@ -24,13 +24,16 @@ boundaryField
     walls
     {
         type            nutkWallFunction;
+        #基于近壁湍流动能的高雷诺数湍流粘性壁函数边界条件。
         value           uniform 0;
     }
 
     "(region0_to.*)"
     {
         type            nutkFilmWallFunction;
+        #当使用壁面函数（基于湍流动能）用于表面薄膜模型时，该边界条件提供了湍流粘度条件。
         B               5.5;
+        #系数 默认5.5
         yPlusCrit       11.05;
         value           uniform 0;
     }
