@@ -1,0 +1,63 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 8
+Exec   : reactingParcelFoam -parallel
+Date   : Dec 16 2020
+Time   : 13:26:33
+Host   : "yuanwp-virtual-machine"
+PID    : 36279
+I/O    : uncollated
+Case   : /home/yuanwp/OpenFOAM/yuanwp-8/run/hotBoxes（复件）（复件）
+nProcs : 8
+Slaves : 
+7
+(
+"yuanwp-virtual-machine.36280"
+"yuanwp-virtual-machine.36281"
+"yuanwp-virtual-machine.36282"
+"yuanwp-virtual-machine.36283"
+"yuanwp-virtual-machine.36284"
+"yuanwp-virtual-machine.36285"
+"yuanwp-virtual-machine.36286"
+)
+
+Pstream initialized with:
+    floatTransfer      : 0
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+
+PIMPLE: No convergence criteria found
+
+
+PIMPLE: Operating solver in transient mode with 1 outer corrector
+PIMPLE: Operating solver in PISO mode
+
+
+Reading thermophysical properties
+
+Selecting thermodynamics package 
+{
+    type            heRhoThermo;
+    mixture         multiComponentMixture;
+    transport       sutherland;
+    thermo          janaf;
+    energy          sensibleEnthalpy;
+    equationOfState perfectGas;
+    specie          specie;
+}
+
