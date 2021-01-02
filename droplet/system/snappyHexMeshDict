@@ -15,9 +15,9 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 // Which of the steps to run
-castellatedMesh true;
-snap            true;
-addLayers       true;
+castellatedMesh true;   //挖孔
+snap            true;    //贴近
+addLayers       true;    //加边界场
 
 
 // Geometry. Definition of all surfaces. All surfaces are of class
@@ -28,13 +28,13 @@ addLayers       true;
 // - to 'snap' the mesh boundary to the surface
 geometry
 {
-    mirror
+    mirror  //新建表面名称
     {
         type triSurfaceMesh;
-        file "mirror.stl";
+        file "mirror.stl";  //来源STL
     }
 
-    refinementBox
+    refinementBox    //加密域区域
     {
         type searchableBox;
         min (0.35 0.4 0.25);
@@ -88,11 +88,11 @@ castellatedMeshControls
 
     // Specifies a level for any cell intersected by its edges.
     // This is a featureEdgeMesh, read from constant/triSurface for now.
-    features
+    features  //特征加密
     (
         {
-            file "mirror.eMesh";
-            level 1;
+            file "mirror.eMesh";  //surfaceFeaturesDict生成的文件 
+            level 1;    //加密的等级 加密网格尺寸=背景域网格/2^level
         }
     );
 
@@ -107,16 +107,16 @@ castellatedMeshControls
     // intersections where the intersections make an
     // angle > resolveFeatureAngle get refined up to the maximum level.
 
-    refinementSurfaces
+    refinementSurfaces  //表面加密
     {
-        mirror
+        mirror 
         {
             // Surface-wise min and max refinement level
-            level (1 1);
+            level (1 1);   //加密范围
 
             // Optional specification of patch type (default is wall). No
             // constraint types (cyclic, symmetry) etc. are allowed.
-            patchInfo
+            patchInfo   //来源
             {
                 type wall;
                 inGroups (mirrorGroup);
@@ -125,7 +125,7 @@ castellatedMeshControls
     }
 
     // Resolve sharp angles
-    resolveFeatureAngle 30;
+    resolveFeatureAngle 30;  
 
 
     // Region-wise refinement
@@ -141,12 +141,12 @@ castellatedMeshControls
     //   needs to be closed for this to be possible.
     // - outside. Same but cells outside.
 
-    refinementRegions
+    refinementRegions  //加密域
     {
-        refinementBox
+        refinementBox 
         {
-            mode inside;
-            levels ((1E15 1));
+            mode inside;  // 内部加密
+            levels ((1E15 1));  //加密等级
         }
     }
 
@@ -159,7 +159,7 @@ castellatedMeshControls
     // section reachable from the locationInMesh is kept.
     // NOTE: This point should never be on a face, always inside a cell, even
     // after refinement.
-    locationInMesh (0.35 0.4 0.22);
+    locationInMesh (0.35 0.4 0.22);  //位置定义在要计算的区域内
 
 
     // Whether any faceZones (as specified in the refinementSurfaces)
@@ -209,7 +209,7 @@ snapControls
 
 
 // Settings for the layer addition.
-addLayersControls
+addLayersControls  //增加边界层
 {
     // Are the thickness parameters below relative to the undistorted
     // size of the refined cell outside layer (true) or absolute sizes (false).
