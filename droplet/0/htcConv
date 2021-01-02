@@ -14,7 +14,7 @@ FoamFile
     object      htcConv;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+#换热系数
 dimensions      [1 0 -1 1 0 0 0];
 
 internalField   uniform 0;
