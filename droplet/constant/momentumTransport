@@ -16,7 +16,7 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 simulationType  RAS;
-
+//RAS模型选择K-e
 RAS
 {
     model           kEpsilon;
