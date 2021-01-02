@@ -14,20 +14,24 @@ FoamFile
     object      reactingCloud1Properties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+//粒子模型
 solution
 {
     active          true;
+    //模型打开
     coupled         yes;
+    //双向耦合打开
     transient       yes;
+    //瞬态
     cellValueSourceCorrection yes;
-    maxCo           0.3;
-
-    sourceTerms
+    //双向耦合打开时打开此项，关闭时此项也关闭
+    maxCo           0.3;   //粒子最大库朗数
+      
+    sourceTerms     //源项
     {
         schemes
         {
-            rho             explicit 1;
+            rho             explicit 1;    
             U               explicit 1;
             Yi              explicit 1;
             h               explicit 1;
@@ -35,7 +39,7 @@ solution
         }
     }
 
-    interpolationSchemes
+    interpolationSchemes //插值模式
     {
         rho             cell;
         U               cellPoint;
@@ -46,44 +50,44 @@ solution
         p               cell;
     }
 
-    integrationSchemes
+    integrationSchemes  //方程组装方案
     {
         U               Euler;
         T               analytical;
     }
 }
 
-constantProperties
+constantProperties 
 {
-    rho0            1000;
-    T0              300;
-    Cp0             4187;
+    rho0            1000;  //密度
+    T0              300;     //温度bir
+    Cp0             4187;    //比热容
 
     constantVolume  false;
 }
 
-subModels
+subModels    //子模型
 {
-    particleForces
+    particleForces    //粒子力
     {
-        sphereDrag;
-        gravity;
+        sphereDrag;   //0.5*rho*u^2*A
+        gravity;      //重力
     }
 
-    injectionModels
+    injectionModels   //喷射模型
     {
         model1
         {
-            type            coneInjection;
-            SOI             0.000;
-            duration        20.000;
-            position        (0.475 0.5 0.55);
-            direction       (0 0 -1);
+            type            coneInjection;     //实心锥喷射模型
+            SOI             0.000;             //开始时间
+            duration        20.000;              //持续时间
+            position        (0.475 0.5 0.55);     //位置
+            direction       (0 0 -1);             //方向
 
-            massTotal       5;//budongzhege
-            parcelsPerSecond 500;
-            parcelBasisType mass;
-            flowRateProfile constant 0.02;
+            massTotal       5;                   //总质量
+            parcelsPerSecond 500;                    //500个粒子每秒
+            parcelBasisType mass;                     //质量
+            flowRateProfile constant 0.02;                    
             Umag            constant 2;
             thetaInner      constant 0;
             thetaOuter      constant 45;
