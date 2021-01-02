@@ -14,20 +14,22 @@ FoamFile
     object      U;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+#速度场
 dimensions      [0 1 -1 0 0 0 0];
-
+#单位 m/s
 internalField   uniform (0 0 0);
-
+#内部场值初始为0
 boundaryField
 {
     walls
     {
         type            uniformFixedValue;
+        #uniformFixedValue 定义为边界初始为0m/s，随时间边界值可以变化。
         uniformValue    (0 0 0);
     }
 
      "(region0_to.*)"
+     #液膜交界面
     {
         type            uniformFixedValue;
         uniformValue    (0 0 0);
