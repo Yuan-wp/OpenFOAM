@@ -87,20 +87,20 @@ subModels    //子模型
             massTotal       5;                   //总质量
             parcelsPerSecond 500;                    //500个粒子每秒
             parcelBasisType mass;                     //质量
-            flowRateProfile constant 0.02;                    
-            Umag            constant 2;
-            thetaInner      constant 0;
-            thetaOuter      constant 45;
+            flowRateProfile constant 0.02;            //不确定 体积流率？
+            Umag            constant 2;               //速度绝对值
+            thetaInner      constant 0;               //内锥角
+            thetaOuter      constant 45;              //外锥角
 
-            sizeDistribution
+            sizeDistribution                       //分布模型
             {
-                type         RosinRammler;
+                type         RosinRammler;               
                 RosinRammlerDistribution
                 {
-                    minValue        5e-04;
-                    maxValue        0.0012;
-                    d               7.5e-05;
-                    n               0.5;
+                    minValue        5e-04;      //最小值        
+                    maxValue        0.0012;    //最大值
+                    d               7.5e-05;       //特征粒径
+                    n               0.5;             //均匀度
                 }
             }
         }
@@ -108,11 +108,11 @@ subModels    //子模型
         
     }
 
-    dispersionModel none;
+    dispersionModel none;                                              
 
-    patchInteractionModel standardWallInteraction;
+    patchInteractionModel standardWallInteraction;         //壁面撞击模型
 
-    heatTransferModel none;
+    heatTransferModel none;                                    //热转化模型
 
     compositionModel singleMixtureFraction;
 
@@ -124,16 +124,16 @@ subModels    //子模型
 
     stochasticCollisionModel none;
 
-    surfaceFilmModel thermoSurfaceFilm;
+    surfaceFilmModel thermoSurfaceFilm;                           //表面液膜模型
 
     radiation       off;
 
     standardWallInteractionCoeffs
     {
-        type            rebound;
+        type            rebound;                    //反弹
     }
 
-    singleMixtureFractionCoeffs
+    singleMixtureFractionCoeffs                       //混合系数
     {
         phases
         (
@@ -153,13 +153,13 @@ subModels    //子模型
         YSolidTot0      0;
     }
 
-    thermoSurfaceFilmCoeffs
+    thermoSurfaceFilmCoeffs                    
     {
-        interactionType splashBai;
-        deltaWet        0.0005;
-        Adry            2630;
-        Awet            1320;
-        Cf              0.6;
+        interactionType splashBai;                 
+        deltaWet        0.0005;                   //液膜厚度大于0.0005为湿表面
+        Adry            2630;                     //干表面粗糙系数
+        Awet            1320;                     //湿表面粗糙系数
+        Cf              0.6;                      //壁面摩擦系数
     }
 }
 
