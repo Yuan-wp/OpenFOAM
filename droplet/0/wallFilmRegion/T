@@ -14,26 +14,26 @@ FoamFile
     object      T;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+#液膜区域温度条件
 dimensions      [0 0 0 1 0 0 0];
 
 internalField   uniform  300;
 
 boundaryField
 {
-    // top film surface
+    // 液膜外表面
     "(.*top)"
     {
         type            zeroGradient;
     }
 
-    // mapped boundaries
+    // 与背景域匹配面
     "(region0_to.*)"
     {
         type            zeroGradient;
         }
 
-    // floor sides
+    // 侧面壁面
     walls
     {
         type            zeroGradient;
