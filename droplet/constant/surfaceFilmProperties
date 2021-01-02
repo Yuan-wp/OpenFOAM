@@ -15,9 +15,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-surfaceFilmModel thermoSingleLayer;
+surfaceFilmModel thermoSingleLayer;          //表面液膜模型
 
-regionName      wallFilmRegion;
+regionName      wallFilmRegion;              //区域名称
 
 active          true;
 
@@ -31,21 +31,21 @@ thermoSingleLayerCoeffs
         liquid      H2O;
     }
 
-    filmViscosityModel liquid;
+    filmViscosityModel liquid;                          //粘性模型
 
-    deltaWet    1e-4;
+    deltaWet    1e-4;                        //大于1e-4为湿表面
 
     hydrophilic no;
 
     radiationModel  none;
 
-    turbulence  laminar;
+    turbulence  laminar;                 //层流
     laminarCoeffs
     {
-        Cf          0.005;
+        Cf          0.005;                       
     }
 
-    upperSurfaceModels
+    upperSurfaceModels                         //上下表面热转化系数
     {
         /*
         heatTransferModel constant;
@@ -68,53 +68,53 @@ thermoSingleLayerCoeffs
 
     forces
     (
-        thermocapillary
-        distributionContactAngle
+        thermocapillary                             //毛细力
+        distributionContactAngle                    //接触角
     );
 
     distributionContactAngleCoeffs
     {
-        Ccf             0.085;
+        Ccf             0.085;                          //没找到
 
         distribution
         {
-            type            normal;
+            type            normal;              //正态分布
             normalDistribution
             {
-                minValue        50;
-                maxValue        100;
-                expectation     75;
-                variance        100;
+                minValue        50;             //最小值
+                maxValue        100;            //最大值
+                expectation     75;             //期望值
+                variance        100;            //方差
             }
         }
 
         zeroForcePatches ();
     }
 
-    injectionModels
+    injectionModels                                
     (
-        curvatureSeparation
-        drippingInjection
+        curvatureSeparation           //剥离模型  F_sum = F_inertial + F_body + F_surface  F_sum<0发生剥离
+        drippingInjection             //剥离模型  当大于稳定厚度出现剥离
     );
 
-    curvatureSeparationCoeffs
+    curvatureSeparationCoeffs   
     {
         definedPatchRadii
         (
-            ("region0_to_wallFilmRegion_wallFilmFace" 0)
+            ("region0_to_wallFilmRegion_wallFilmFace" 0)  //出现剥离的表面  选择toposet提取的液膜表面集合
         );
     }
 
     drippingInjectionCoeffs
     {
-        cloudName    reactingCloud1;
-        deltaStable  0;
+        cloudName    reactingCloud1;             //粒子云名称
+        deltaStable  0;                          //稳定液膜厚度
 
-        particlesPerParcel 100.0;
+        particlesPerParcel 100.0;                //每个粒子束中的粒子
 
-        parcelDistribution
+        parcelDistribution                       //粒子分布
         {
-            type         RosinRammler;
+            type         RosinRammler;            //RosinRammler分布
             RosinRammlerDistribution
             {
                 minValue        5e-04;
