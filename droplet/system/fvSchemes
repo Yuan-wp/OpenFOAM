@@ -14,7 +14,7 @@ FoamFile
     object      fvSchemes;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+//离散格式
 ddtSchemes
 {
     default         Euler;
