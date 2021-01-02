@@ -13,10 +13,10 @@ FoamFile
     object      extrudeToRegionMeshDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+//拉伸出液膜区域  拉伸边界默认为向计算域外拉伸
+region          wallFilmRegion;  //区域名称
 
-region          wallFilmRegion;
-
-faceZones
+faceZones           //拉伸源表面集合
 (
     wallFilmFace
     mirrorFace
@@ -24,19 +24,19 @@ faceZones
 
 oneD            false;
 
-sampleMode      nearestPatchFace;
+sampleMode      nearestPatchFace; //近壁面
 
-extrudeModel    linearNormal;
+extrudeModel    linearNormal; //线性
 
-nLayers         1;
+nLayers         1;   //拉伸一层
 
-expansionRatio  1;
+expansionRatio  1;  
 
 adaptMesh       yes; // apply mapped to both regions
 
 linearNormalCoeffs
 {
-    thickness       0.001;
+    thickness       0.001;  //拉伸厚度
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
