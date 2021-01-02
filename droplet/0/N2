@@ -14,7 +14,7 @@ FoamFile
     object      N2;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+#氮气场同水场（H2O）
 dimensions      [0 0 0 0 0 0 0];
 
 internalField   uniform 0.79;
