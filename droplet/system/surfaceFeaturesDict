@@ -13,8 +13,8 @@ FoamFile
     object      surfaceFeaturesDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-surfaces ("mirror.stl");
+//提取STL表面特征线
+surfaces ("mirror.stl");  //stl面
 
 // Identify a feature when angle between faces < includedAngle
 includedAngle       150;
