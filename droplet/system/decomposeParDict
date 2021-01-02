@@ -14,7 +14,7 @@ FoamFile
     object      decomposeParDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+//分块 用于并行计算 
 numberOfSubdomains 4;
 
 method          scotch;
