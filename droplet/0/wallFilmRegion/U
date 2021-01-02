@@ -14,7 +14,7 @@ FoamFile
     object      U;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+#液膜速度条件
 dimensions      [0 1 -1 0 0 0 0];
 
 internalField   uniform (0 0 0);
@@ -25,6 +25,7 @@ boundaryField
     "(.*top)"
     {
         type            slip;
+        #滑移壁面
     }
 
     // mapped boundaries
@@ -37,6 +38,7 @@ boundaryField
     walls
     {
         type            noSlip;
+        #非滑移壁面
     }
 }
 
