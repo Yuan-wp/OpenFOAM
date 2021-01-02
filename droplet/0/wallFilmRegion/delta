@@ -14,7 +14,7 @@ FoamFile
     object      delta;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+#液膜高度条件
 dimensions      [0 1 0 0 0 0 0];
 
 internalField   uniform 0.0;
