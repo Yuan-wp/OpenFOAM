@@ -14,7 +14,7 @@ FoamFile
     object      epsilon;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+#	湍流耗散场
 dimensions      [0 2 -3 0 0 0 0];
 
 internalField   uniform 1e-7;
