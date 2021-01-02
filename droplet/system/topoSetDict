@@ -14,18 +14,19 @@ FoamFile
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+//提取液膜表面，建立集合
 actions
 (
     {
-        name    wallFilmFaceSet;
-        type    faceSet;
+        name    wallFilmFaceSet;   //新建的集合名称
+        type    faceSet;         
         action  new;
         source  patchToFace;
         sourceInfo
         {
-            name wallFilm;
+            name wallFilm;     //提取的表面名称
         }
+        //新建faceset
     }
     {
     
@@ -47,6 +48,7 @@ actions
         {
             faceSet wallFilmFaceSet;
         }
+       // 将提取的faceset生成faceZoneSet集合（剥离模型使用）
     }
     {
         name    mirrorFace;
