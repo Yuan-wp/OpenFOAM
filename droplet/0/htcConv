@@ -30,7 +30,9 @@ boundaryField
     "(region0_to.*)"
     {
         type            convectiveHeatTransfer;
+        #该边界条件提供了对流换热系数条件
         L               1;
+        #长度尺度
         value           uniform 0;
     }
 }
