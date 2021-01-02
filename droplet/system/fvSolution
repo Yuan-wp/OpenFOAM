@@ -14,14 +14,14 @@ FoamFile
     object      fvSolution;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+//矩阵求解器
 solvers
 {
     "(rho|G)"
     {
         solver          PCG;
         preconditioner  DIC;
-        tolerance       0;
+        tolerance       0;    //容差
         relTol          0.1;
     }
 
@@ -71,9 +71,9 @@ solvers
 
 PIMPLE
 {
-    nCorrectors     2;
-    nNonOrthogonalCorrectors 0;
-    momentumPredictor yes;
+    nCorrectors     2;               //外循环数
+    nNonOrthogonalCorrectors 0;       //非正交修正
+    momentumPredictor yes;            //动量预测
 }
 
 relaxationFactors
