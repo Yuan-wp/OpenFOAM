@@ -14,8 +14,9 @@ FoamFile
     object      p;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+#压力场
 dimensions      [1 -1 -2 0 0 0 0];
+#单位kg/(m*s^2)
 
 internalField   uniform 100000;
 
@@ -24,12 +25,14 @@ boundaryField
     walls
     {
         type            calculated;
+        #内部场计算而来
         value           $internalField;
     }
 
      "(region0_to.*)"
     {
         type            calculated;
+        #内部场计算而来
         value           uniform 100000;
     }
 }
