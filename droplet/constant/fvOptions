@@ -14,7 +14,7 @@ FoamFile
     object      fvOptions;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+//限制温度在200k-5000k之间 
 limitT
 {
     type            limitTemperature;
