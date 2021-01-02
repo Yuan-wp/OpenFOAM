@@ -14,7 +14,7 @@ FoamFile
     object      k;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#湍流强度
+//湍流强度
 dimensions      [0 2 -2 0 0 0 0];
 
 internalField   uniform 1e-5;
@@ -24,7 +24,7 @@ boundaryField
     walls
     {
         type            kqRWallFunction;
-        #This boundary condition provides a suitable condition for turbulence k, q, and R fields for the case of high Reynolds number flow using wall functions. 
+        //This boundary condition provides a suitable condition for turbulence k, q, and R fields for the case of high Reynolds number flow using wall functions. 
         value           uniform 1e-5;
     }
 

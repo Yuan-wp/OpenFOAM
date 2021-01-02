@@ -14,7 +14,7 @@ FoamFile
     object      O2;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#氧气场同水场
+//氧气场同水场
 dimensions      [0 0 0 0 0 0 0];
 
 internalField   uniform 0.21;

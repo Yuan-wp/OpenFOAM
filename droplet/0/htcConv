@@ -14,7 +14,7 @@ FoamFile
     object      htcConv;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#换热系数
+//换热系数
 dimensions      [1 0 -1 1 0 0 0];
 
 internalField   uniform 0;
@@ -30,9 +30,9 @@ boundaryField
     "(region0_to.*)"
     {
         type            convectiveHeatTransfer;
-        #该边界条件提供了对流换热系数条件
+        //该边界条件提供了对流换热系数条件
         L               1;
-        #长度尺度
+        //长度尺度
         value           uniform 0;
     }
 }

@@ -14,7 +14,7 @@ FoamFile
     object      epsilon;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#	湍流耗散场
+//	湍流耗散场
 dimensions      [0 2 -3 0 0 0 0];
 
 internalField   uniform 1e-7;
@@ -24,7 +24,7 @@ boundaryField
     walls
     {
         type            epsilonWallFunction;
-        #此边界条件为低雷诺和高雷诺数湍流模型提供湍流耗散壁约束
+        //此边界条件为低雷诺和高雷诺数湍流模型提供湍流耗散壁约束
         value           uniform 1e-7;
     }
 

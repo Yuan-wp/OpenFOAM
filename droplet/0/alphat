@@ -16,17 +16,17 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 dimensions      [1 -1 -1 0 0 0 0];
-#单位kg/(m*s)
+//单位kg/(m*s)
 internalField   uniform 1e-7;
-#内部初始值为1e-7
+//内部初始值为1e-7
 boundaryField
 {
     walls
     {
         type            compressible::alphatWallFunction;
-        #类型 此边界条件在使用壁函数时提供湍流热扩散条件
+        //类型 此边界条件在使用壁函数时提供湍流热扩散条件
         Prt             0.85;
-        #普朗特数 默认值0.85
+        //普朗特数 默认值0.85
         value           uniform 0;
         
     }
@@ -34,17 +34,17 @@ boundaryField
      "(region0_to.*)"
     {
         type            alphatFilmWallFunction;
-        #此边界条件在使用壁函数时提供湍流热扩散条件，用于表面液膜模型。此函数通过液膜释放质量不同而采取不同的标准壁面函数。
+        //此边界条件在使用壁函数时提供湍流热扩散条件，用于表面液膜模型。此函数通过液膜释放质量不同而采取不同的标准壁面函数。
         B               5.5;
-        #系数
+        //系数
         yPlusCrit       11.05;
-        #y+值
+        //y+值
         Cmu             0.09;
-        #系数
+        //系数
         kappa           0.41;
-        #冯-卡曼常数
+        //冯-卡曼常数
         Prt             0.85;
-        #普朗特数
+        //普朗特数
         value           uniform 0;
     }
 }

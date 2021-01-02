@@ -14,7 +14,7 @@ FoamFile
     object      T;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#液膜区域温度条件
+//液膜区域温度条件
 dimensions      [0 0 0 1 0 0 0];
 
 internalField   uniform  300;

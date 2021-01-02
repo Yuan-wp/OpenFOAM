@@ -14,22 +14,22 @@ FoamFile
     object      H2O;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#背景域水分布
+//背景域水分布
 dimensions      [0 0 0 0 0 0 0];
-#dimensions 单位
+//dimensions 单位
 internalField   uniform 0;
-#初始值 内部场为0
+//初始值 内部场为0
 boundaryField
 {
     walls
-    #边界名称
+    //边界名称
     {
         type            zeroGradient;
-        #类型           0梯度   
+        //类型           0梯度   
     }
 
      "(region0_to.*)"
-     #交界面集合
+     //交界面集合
     {
         type            zeroGradient;
     }
