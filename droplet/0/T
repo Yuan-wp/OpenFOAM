@@ -16,9 +16,9 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 dimensions      [0 0 0 1 0 0 0];
-
+#温度场 单位K
 internalField   uniform 300;
-
+#内部场初始值 300k
 boundaryField
 {
     walls
@@ -30,6 +30,7 @@ boundaryField
      "(region0_to.*)"
     {
         type            fixedValue;
+        #类型固定值 边界场不随时间变化
         value           uniform 300;
     }
 }
